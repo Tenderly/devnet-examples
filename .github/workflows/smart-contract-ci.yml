@@ -29,4 +29,4 @@ jobs:
         run: npx hardhat test --network devnet
         working-directory: ./CI-project
         env:
-          DEVNET_RPC_URL: ${{ secrets.DEVNET_JSON_RPC_URL }}
+          DEVNET_RPC_URL: ${{ secrets.DEVNET_RPC_URL }}
