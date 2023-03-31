@@ -1,33 +1,32 @@
-  yamlCopy code
-  name: Smart Contract CI
+name: Smart Contract CI
 
-  on:
-    push:
-      branches:
-        - main
-    pull_request:
-      branches:
-        - main
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
-  jobs:
-    build-and-test:
-      runs-on: ubuntu-latest
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
 
-      steps:
-        - name: Checkout code
-          uses: actions/checkout@v2
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-        - name: Set up Node.js
-          uses: actions/setup-node@v2
-          with:
-            node-version: 14
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
 
-        - name: Install dependencies
-          run: yarn install
-          working-directory: ./CI-project
+      - name: Install dependencies
+        run: yarn install
+        working-directory: ./CI-project
 
-        - name: Run tests
-          run: npx hardhat test --network devnet
-          working-directory: ./CI-project
-          env:
-            DEVNET_RPC_URL: ${{ secrets.DEVNET_JSON_RPC_URL }}
+      - name: Run tests
+        run: npx hardhat test --network devnet
+        working-directory: ./CI-project
+        env:
+          DEVNET_RPC_URL: ${{ secrets.DEVNET_JSON_RPC_URL }}
