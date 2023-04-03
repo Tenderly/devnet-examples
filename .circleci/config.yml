@@ -7,10 +7,12 @@ jobs:
       - checkout
       - run:
           name: Install Dependencies
-          command: npm install
+          command: yarn install
+          working_directory: ./CI-project
       - run:
           name: Run Tests
           command: npx hardhat test --network devnet
+          working_directory: ./CI-project
 
 workflows:
   version: 2

@@ -13,9 +13,9 @@ function createDevnet() {
 
 const config: HardhatUserConfig = {
   solidity: "0.8.18",
-  defaultNetwork: "tenderly_devnet",
+  defaultNetwork: "devnet",
   networks: {
-    tenderly_devnet: {
+    devnet: {
       url: createDevnet(),
     }
   }
