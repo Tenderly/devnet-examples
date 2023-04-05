@@ -3,6 +3,16 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "deploy": "hardhat run scripts/deploy.ts",
+    "spawn-devnet": "node ./util/spawn-devnet.js",
+    "test:devnet": "yarn run spawn-devnet && hardhat test --network devnet",
+    "deploy:devnet": "yarn run spawn-devnet && hardhat run scripts/deploy.ts --network devnet",
+    "test:devnet:ci": "CI=true yarn run spawn-devnet && hardhat test --network devnet",
+    "deploy:devnet:ci": "CI=true yarn run spawn-devnet && hardhat run scripts/deploy.ts --network devnet"
+  },
   "devDependencies": {
     "@ethersproject/abi": "^5.4.7",
     "@ethersproject/providers": "^5.4.7",
@@ -24,6 +34,7 @@
     "solidity-coverage": "^0.8.0",
     "ts-node": ">=8.0.0",
     "typechain": "^8.1.0",
-    "typescript": ">=4.5.0"
+    "typescript": ">=4.5.0",
+    "util": "^0.12.5"
   }
 }
