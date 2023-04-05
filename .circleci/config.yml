@@ -11,7 +11,7 @@ jobs:
           working_directory: ./CI-project
       - run:
           name: Run Tests
-          command: npx hardhat test --network devnet
+          command: yarn run test:devnet:ci
           working_directory: ./CI-project
 
 workflows:
