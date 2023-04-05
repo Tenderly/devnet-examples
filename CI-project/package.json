@@ -9,7 +9,9 @@
     "deploy": "hardhat run scripts/deploy.ts",
     "spawn-devnet": "node ./util/spawn-devnet.js",
     "test:devnet": "yarn run spawn-devnet && hardhat test --network devnet",
-    "deploy:devnet": "yarn run spawn-devnet && hardhat run scripts/deploy.ts --network devnet"
+    "deploy:devnet": "yarn run spawn-devnet && hardhat run scripts/deploy.ts --network devnet",
+    "test:devnet:ci": "CI=true yarn run spawn-devnet && hardhat test --network devnet",
+    "deploy:devnet:ci": "CI=true yarn run spawn-devnet && hardhat run scripts/deploy.ts --network devnet"
   },
   "devDependencies": {
     "@ethersproject/abi": "^5.4.7",
