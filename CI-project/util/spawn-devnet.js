@@ -6,9 +6,9 @@ const {
     CI,
 } = process.env;
 
-let command = "./util/tenderly-cli devnet spawn-rpc --project devnet-testing --template devnet-example-ci --account fa4a29af-ad72-44ac-9261-4bf3a8af3a06  --access_key "+ TENDERLY_ACCESS_KEY
+let command = "./util/tenderly-cli devnet spawn-rpc --project devnet-testing --template devnet-testing-ci --account fa4a29af-ad72-44ac-9261-4bf3a8af3a06  --access_key "+ TENDERLY_ACCESS_KEY
 if (CI === "true") {
-    command = "./util/tenderly-cli-linux devnet spawn-rpc --project devnet-testing --template devnet-example-ci --account fa4a29af-ad72-44ac-9261-4bf3a8af3a06  --access_key "+ TENDERLY_ACCESS_KEY
+    command = "./util/tenderly-cli-linux devnet spawn-rpc --project devnet-testing --template devnet-testing-ci --account fa4a29af-ad72-44ac-9261-4bf3a8af3a06  --access_key "+ TENDERLY_ACCESS_KEY
 }
 
 const util = require('util');
