@@ -25,8 +25,11 @@ jobs:
         run: yarn install
         working-directory: ./CI-project
 
+      - name: Install Tenderly CLI
+        run: curl https://raw.githubusercontent.com/Tenderly/tenderly-cli/master/scripts/install-linux.sh | sh
+
       - name: Run tests
-        run: yarn run test:devnet:ci
+        run: yarn run test:devnet
         working-directory: ./CI-project
         env:
           TENDERLY_ACCESS_KEY: ${{ secrets.TENDERLY_ACCESS_KEY }}
