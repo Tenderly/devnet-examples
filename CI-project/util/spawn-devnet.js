@@ -3,13 +3,14 @@ dotenv.config();
 
 const {
     TENDERLY_ACCESS_KEY,
-    CI,
+    TENDERLY_PROJECT_SLUG,
+    TENDERLY_ACCOUNT_ID,
+    TENDERLY_DEVNET_TEMPLATE,
 } = process.env;
 
-let command = "tenderly devnet spawn-rpc --project devnet-testing --template devnet-testing-ci --account fa4a29af-ad72-44ac-9261-4bf3a8af3a06  --access_key "+ TENDERLY_ACCESS_KEY
+let command = `tenderly devnet spawn-rpc --project ${TENDERLY_PROJECT_SLUG} --template ${TENDERLY_DEVNET_TEMPLATE} --account ${TENDERLY_ACCOUNT_ID}  --access_key ${TENDERLY_ACCESS_KEY}`
 
 const util = require('util');
-const fs = require("fs");
 const exec = util.promisify(require('child_process').exec);
 
 const createDevNet = async () => {
