@@ -27,9 +27,7 @@ jobs:
         working-directory: ./CI-project
 
       - name: Install Tenderly CLI
-        run: |
-          curl https://raw.githubusercontent.com/Tenderly/tenderly-cli/master/scripts/install-linux.sh | sh
-          echo "/usr/local/bin" >> $GITHUB_PATH
+        run: curl curl https://raw.githubusercontent.com/Tenderly/tenderly-cli/master/scripts/install-linux.sh | sudo sh
 
       - name: Run tests
         run: yarn run test:devnet
