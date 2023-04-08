@@ -12,7 +12,7 @@ jobs:
 
       - run:
             name: Install Tenderly CLI
-            command: curl https://raw.githubusercontent.com/Tenderly/tenderly-cli/master/scripts/install-linux.sh | sh
+            command: curl curl https://raw.githubusercontent.com/Tenderly/tenderly-cli/master/scripts/install-linux.sh | sudo sh
 
       - run:
           name: Run Tests
