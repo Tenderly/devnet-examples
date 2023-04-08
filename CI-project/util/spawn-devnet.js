@@ -1,9 +1,9 @@
-import util from 'util';
-import dotenv from 'dotenv';
-import fs from 'fs';
-import * as childProcess from 'child_process';
+const util = require('util');
+const fs = require('fs');
+const dotenv = require("dotenv");
+const exec = util.promisify(require('child_process').exec);
 
-import {defaultValues} from "./default-values";
+const defaultValues = require("./default-values");
 
 dotenv.config();
 
@@ -19,7 +19,6 @@ const {
 
 let command = `tenderly devnet spawn-rpc --project ${TENDERLY_PROJECT_SLUG} --template ${TENDERLY_DEVNET_TEMPLATE} --account ${TENDERLY_ACCOUNT_ID}  --access_key ${TENDERLY_ACCESS_KEY}`
 
-const exec = util.promisify(childProcess.exec);
 const createDevNet = async () => {
     const {stderr} = await exec(command);
     const devNetUrl = stderr.trim().toString();
