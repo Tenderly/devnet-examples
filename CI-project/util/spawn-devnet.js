@@ -1,19 +1,23 @@
+const util = require('util');
+const fs = require('fs');
 const dotenv = require("dotenv");
+const exec = util.promisify(require('child_process').exec);
+
+const defaultValues = require("./default-values");
+
 dotenv.config();
 
 const {
     TENDERLY_ACCESS_KEY,
-    CI,
 } = process.env;
 
-let command = "./util/tenderly-cli spawn-rpc --project devnet-testing --template devnet-example-ci --account fa4a29af-ad72-44ac-9261-4bf3a8af3a06  --access_key "+ TENDERLY_ACCESS_KEY
-if (CI === "true") {
-    command = "./util/tenderly-cli-linux spawn-rpc --project devnet-testing --template devnet-example-ci --account fa4a29af-ad72-44ac-9261-4bf3a8af3a06  --access_key "+ TENDERLY_ACCESS_KEY
-}
+const {
+    TENDERLY_PROJECT_SLUG,
+    TENDERLY_ACCOUNT_ID,
+    TENDERLY_DEVNET_TEMPLATE,
+} = defaultValues();
 
-const util = require('util');
-const fs = require("fs");
-const exec = util.promisify(require('child_process').exec);
+let command = `tenderly devnet spawn-rpc --project ${TENDERLY_PROJECT_SLUG} --template ${TENDERLY_DEVNET_TEMPLATE} --account ${TENDERLY_ACCOUNT_ID}  --access_key ${TENDERLY_ACCESS_KEY}`
 
 const createDevNet = async () => {
     const {stderr} = await exec(command);
@@ -21,7 +25,6 @@ const createDevNet = async () => {
 
     console.log("DEVNET_RPC_URL=" + devNetUrl)
 
-    const fs = require('fs');
     // if file not exists, create it
     if (!fs.existsSync('.env')) {
         fs.writeFileSync('.env', '');

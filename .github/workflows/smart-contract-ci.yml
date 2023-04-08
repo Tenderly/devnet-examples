@@ -14,19 +14,22 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: 14
+          node-version: 16
 
       - name: Install dependencies
         run: yarn install
         working-directory: ./CI-project
 
+      - name: Install Tenderly CLI
+        run: curl curl https://raw.githubusercontent.com/Tenderly/tenderly-cli/master/scripts/install-linux.sh | sudo sh
+
       - name: Run tests
-        run: yarn run test:devnet:ci
+        run: yarn run test:devnet
         working-directory: ./CI-project
         env:
           TENDERLY_ACCESS_KEY: ${{ secrets.TENDERLY_ACCESS_KEY }}
