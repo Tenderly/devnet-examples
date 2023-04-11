@@ -14,7 +14,7 @@ Before setting up a DevNet locally, make sure to:
 To set up DevNet with Hardhat:
 
 1. Install Hardhat.
-2. Configure `hardhat.config.js` with your DevNet JSON-RPC URL. 
+2. Configure `hardhat.config.js` with your DevNet JSON-RPC URL and network name must be either `tenderly` or `devnet`. 
 
 Alternatively, use the `spawn-rpc` CLI command to automate the process.
 
