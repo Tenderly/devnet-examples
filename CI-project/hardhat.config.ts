@@ -20,7 +20,7 @@ const config: HardhatUserConfig = {
     },
     tenderly: {
         project: "devnet-testing",
-        username: "tenderly",
+        username: "Tenderly",
     }
 };
 
