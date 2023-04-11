@@ -7,6 +7,8 @@ dotenv.config();
 tdly.setup({automaticVerifications: true})
 
 const {
+    TENDERLY_ACCESS_KEY,
+    TENDERLY_PROJECT_SLUG,
     DEVNET_RPC_URL,
 } = process.env;
 
@@ -19,8 +21,9 @@ const config: HardhatUserConfig = {
         }
     },
     tenderly: {
-        project: "devnet-testing",
+        project: TENDERLY_PROJECT_SLUG || "devnet-example",
         username: "Tenderly",
+        accessKey: TENDERLY_ACCESS_KEY,
     }
 };
 
