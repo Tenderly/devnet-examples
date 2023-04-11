@@ -62,6 +62,15 @@ module.exports = {
 truffle migrate --network devnet
 ```
 
+## CI Integration
+To integrate DevNet with your CI pipeline, use the `spawn-rpc` CLI command to spawn a DevNet instance and get the JSON-RPC URL.
+
+```bash
+tenderly devnet spawnRPC --template <YOUR_TEMPALATE_SLUG> --project <YOUR_PROJECT_SLUG>
+```
+
+Please refer to the [CI-project example](CI-project) for more details.
+
 # Further Guidance
 For more information on DevNet, check out the following resources:
 - [DevNet Documentation](https://docs.tenderly.co/devnets)
