@@ -7,16 +7,16 @@ const {
 } = process.env;
 
 async function main() {
-    const forkProvider = new ethers.providers.JsonRpcProvider(DEVNET_RPC_URL);
+    const devnetProvider = new ethers.providers.JsonRpcProvider(DEVNET_RPC_URL);
 
     // 10 accounts with balance 100 available
     const [minterAddress, ownerAddress, spenderAddress, receiverAddress] =
-        await forkProvider.listAccounts();
+        await devnetProvider.listAccounts();
     const [minterSigner, ownerSigner, spenderSigner] = [
-        forkProvider.getSigner(minterAddress),
-        forkProvider.getSigner(ownerAddress),
-        forkProvider.getSigner(spenderAddress),
-        forkProvider.getSigner(receiverAddress),
+        devnetProvider.getSigner(minterAddress),
+        devnetProvider.getSigner(ownerAddress),
+        devnetProvider.getSigner(spenderAddress),
+        devnetProvider.getSigner(receiverAddress),
     ];
 
     await minterSigner.sendTransaction({
