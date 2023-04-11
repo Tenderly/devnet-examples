@@ -33,3 +33,6 @@ jobs:
         working-directory: ./CI-project
         env:
           TENDERLY_ACCESS_KEY: ${{ secrets.TENDERLY_ACCESS_KEY }}
+          TENDERLY_PROJECT_SLUG: ${{ secrets.TENDERLY_PROJECT_SLUG }}
+          TENDERLY_DEVNET_TEMPLATE: ${{ secrets.TENDERLY_DEVNET_TEMPLATE }}
+          TENDERLY_ACCOUNT_ID: ${{ secrets.TENDERLY_ACCOUNT_ID }}
