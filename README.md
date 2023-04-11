@@ -75,3 +75,4 @@ Please refer to the [CI-project example](CI-project) for more details.
 For more information on DevNet, check out the following resources:
 - [DevNet Documentation](https://docs.tenderly.co/devnets)
 - [DevNet Known Issues](https://docs.tenderly.co/devnets/references/known-issues)
+- [Custom RPC Methods](https://docs.tenderly.co/devnets/references/custom-rpc-methods)
