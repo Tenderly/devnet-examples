@@ -10,10 +10,8 @@ export DEVNET_RPC_URL="$response"
 
 # Replace existing environment variable in .zshrc file
 if grep -q "export DEVNET_RPC_URL=" ~/.zshrc; then
-  TMP_FILE=$(mktemp)
-  sed -i "s|export DEVNET_RPC_URL=.*|export DEVNET_RPC_URL=\"$DEVNET_RPC_URL\"|" ~/.zshrc > "$TMP_FILE"
-  cat "$TMP_FILE" > ~/.zshrc
-  rm "$TMP_FILE"
+  sed -i.bak "s|export DEVNET_RPC_URL=.*|export DEVNET_RPC_URL=\"$DEVNET_RPC_URL\"|" ~/.zshrc
+  rm ~/.zshrc.bak
 else
   echo "export DEVNET_RPC_URL=\"$DEVNET_RPC_URL\"" >> ~/.zshrc
 fi
