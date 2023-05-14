@@ -1,0 +1,12 @@
+{
+  "name": "js",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "dotenv": "^16.0.3"
+  },
+  "scripts": {
+    "spawn-devnet": "node ./spawn-devnet.js"
+  }
+}
