@@ -34,3 +34,11 @@ To create a new instance of the `Counter` contract, run the following command:
 ```bash
 forge create --rpc-url=$DEVNET_RPC_URL ./src/Counter.sol:Counter --unlocked --from 0x0000000000000000000000000000000000000000
 ```
+
+## Forge Scripts
+
+To execute a forge script, run the following command:
+
+```bash
+forge script ./scripts/Counter.s.sol --rpc-url=$DEVNET_RPC_URL --broadcast
+```

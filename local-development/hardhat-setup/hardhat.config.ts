@@ -1,6 +1,13 @@
 import {HardhatUserConfig} from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
+
+import * as tdly from "@tenderly/hardhat-tenderly";
 import * as dotenv from "dotenv";
+
+tdly.setup({
+    automaticVerifications: true,
+});
+
 dotenv.config();
 
 const {
@@ -18,6 +25,11 @@ const config: HardhatUserConfig = {
         tenderly_devnet: {
             url: createDevnet(),
         }
+    },
+    tenderly: {
+        username: "filipTenderly", // tenderly username (or organization name)
+        project: "test", // project name
+        privateVerification: false // if true, contracts will be verified privately, if false, contracts will be verified publicly
     }
 };
 
